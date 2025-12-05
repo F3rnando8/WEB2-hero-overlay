@@ -1,0 +1,676 @@
+/* ==============================
+   RESET Y TIPOGRAFÍA
+   ============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Usando Poppins para el texto normal */
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #f4f4f4;
+    padding-top: 0; 
+    color: #333; /* Texto base más oscuro para mejor contraste en secciones blancas */
+}
+
+/* ------------------------------ */
+/* VARIABLES DE COLOR */
+/* ------------------------------ */
+:root {
+    --primary-color: #FF3A3A; /* Rojo de alto impacto (un poco más oscuro que antes) */
+    --secondary-color: #182848; /* Azul oscuro elegante */
+    --text-light: rgba(255, 255, 255, 0.95);
+}
+
+/* ==============================
+   STICKY NAVBAR FIJO
+   ============================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    z-index: 1000;
+    background: rgba(24, 40, 72, 0.95);
+    backdrop-filter: blur(5px);
+    transition: background 0.4s ease, padding 0.4s ease;
+}
+
+/* Estado del navbar al hacer scroll */
+.navbar.scrolled {
+    background: var(--secondary-color); /* Oscuro sólido */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 0 2rem;
+}
+
+.navbar-logo a {
+    /* Mantenemos Oswald para el logo */
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    /* MEJORA: Más espaciado en el logo */
+    letter-spacing: 2px;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 400; /* Ligeramente más delgado para un look limpio */
+    font-size: 1rem;
+    margin-left: 2.5rem; /* Más espacio entre enlaces */
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* MEJORA: Mayúsculas en el menú */
+}
+
+.navbar-links a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ==============================
+   HERO SECTION (Inicio)
+   ============================== */
+.hero {
+    position: relative;
+    height: 100vh; 
+    background-image: url('https://images.unsplash.com/photo-1620021303254-20993072223b?w=1920&h=1000&fit=crop&q=80&auto=format');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado más profundo y menos morado */
+    background: linear-gradient(
+        145deg,
+        rgba(24, 40, 72, 0.95) 0%, /* Más opaco */
+        rgba(35, 50, 80, 0.9) 100%
+    );
+    z-index: 1;
+}
+
+/* ==============================
+   REDES SOCIALES Y SCROLL
+   ============================== */
+.social-links {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-light);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    background: var(--primary-color); 
+    transform: translateX(5px);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    text-decoration: none;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==============================
+   CONTENIDO HERO 
+   ============================== */
+.hero-content {
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    padding: 2rem;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--primary-color); 
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1rem; /* MEJORA: Ligeramente más grande */
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    box-shadow: 0 0 20px rgba(255, 58, 58, 0.6); /* Sombra más intensa */
+}
+
+.hero-content h1 {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 6rem; /* MEJORA: Aún más grande en desktop */
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9); /* Sombra más definida */
+    line-height: 1;
+    text-transform: uppercase; /* MEJORA: Título en mayúsculas */
+    letter-spacing: 5px; /* MEJORA: Más espaciado */
+    animation: fadeInUp 1s ease 0.2s backwards;
+}
+
+.hero-content p {
+    color: var(--text-light);
+    font-size: 1.5rem; /* MEJORA: Texto más grande */
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    font-weight: 300;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease 0.4s backwards;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease 0.6s backwards;
+}
+
+.btn {
+    padding: 1.2rem 3.5rem; /* MEJORA: Más padding */
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 10px 25px rgba(255, 58, 58, 0.5); /* Sombra más destacada */
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    background: #e63946;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: var(--secondary-color);
+    border: 2px solid white;
+    transform: translateY(-5px);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    animation: fadeInUp 1s ease 0.8s backwards;
+}
+
+.stat h3 {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 3.5rem; /* MEJORA: Números más grandes */
+    margin-bottom: 0.3rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.stat p {
+    color: rgba(255, 255, 255, 0.9); /* Ligeramente más claro */
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    font-weight: 300;
+    text-shadow: none;
+}
+
+/* ==============================
+   SECCIÓN DE AUTOS 
+   ============================== */
+.content-section {
+    padding: 6rem 2rem;
+    background: #f4f4f4;
+}
+
+.content-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.content-section h2 {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 3.5rem; /* MEJORA: Título de sección más grande */
+    color: var(--secondary-color);
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 4px; /* MEJORA: Más espaciado */
+}
+
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 3rem; /* MEJORA: Más espacio entre tarjetas */
+}
+
+/* ------------------------------ */
+/* ESTILOS DE LA TARJETA INDIVIDUAL (CARD con Giro Vertical) */
+/* ------------------------------ */
+.car-card {
+    perspective: 1000px; 
+    position: relative;
+    height: 480px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Sombra más suave y definida */
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    overflow: hidden; /* Asegura que la sombra del hover no salga del card */
+}
+
+.car-card:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25); 
+    transform: translateY(-10px); /* MEJORA: Más elevación al pasar el mouse */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1); 
+    transform-style: preserve-3d;
+    border-radius: 15px;
+}
+
+/* Giro Vertical (RotateX) */
+.car-card:hover .card-inner {
+    transform: rotateX(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: #ffffff; 
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* CARA FRONTAL */
+.card-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+/* Efecto zoom al hacer hover en la imagen (solo en el frente) */
+.car-card:hover .card-front .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.card-content h3 {
+    color: var(--secondary-color);
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem; /* MEJORA: Título de tarjeta más grande */
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.card-content p {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 0.95rem; /* Ligeramente más legible */
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color); 
+}
+
+.btn-card {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.4rem; /* MEJORA: Más padding */
+    border-radius: 8px; /* Borde más cuadrado */
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn-card:hover {
+    background: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* CARA TRASERA */
+.card-back {
+    transform: rotateX(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.card-back-content {
+    width: 100%;
+    text-align: center;
+}
+
+.card-back h3 {
+    color: var(--secondary-color);
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--primary-color); /* Borde más grueso */
+    padding-bottom: 0.5rem;
+}
+
+.back-details {
+    padding: 1rem 0;
+}
+
+.back-details ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.back-details li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem; /* Más espacio */
+    color: #4a4a4a;
+    font-size: 1.05rem; /* Más legible */
+    font-weight: 400;
+}
+
+.back-details li .icon {
+    font-size: 1.3rem;
+    margin-right: 15px;
+    color: var(--primary-color); 
+}
+
+/* BADGES (Señalizaciones de las Cards) */
+.badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10;
+    padding: 0.4rem 1.1rem; /* Ligeramente más grandes */
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 5px; /* Más cuadrado */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.badge-limited {
+    background: #e63946;
+    color: white;
+}
+.badge-premium {
+    background: #182848;
+    color: gold;
+    border: 1px solid gold;
+}
+.badge-new {
+    background: var(--primary-color);
+    color: white;
+}
+.badge-hot {
+    background: #f0ad4e;
+    color: var(--secondary-color);
+}
+.badge-discount {
+    background: #28a745;
+    color: white;
+}
+
+/* ==============================
+   ANIMACIÓN HERO (mantener)
+   ============================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+/* ==============================
+   RESPONSIVE (Mantenemos y ajustamos)
+   ============================== */
+@media (max-width: 1100px) {
+    .cars-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .navbar {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 60px;
+        padding: 0 1rem;
+        flex-direction: row-reverse; 
+        justify-content: space-between;
+    }
+    
+    .navbar-logo {
+        margin-left: 0; 
+    }
+    
+    .menu-toggle {
+        display: block;
+        order: -1; 
+    }
+
+    .navbar-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--secondary-color);
+        flex-direction: column;
+        align-items: center; 
+        padding: 1rem 0;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .navbar-links a {
+        margin: 0.5rem 0; 
+    }
+
+    .navbar-links.active {
+        transform: translateY(0);
+    }
+    
+    .content-section {
+        padding: 4rem 1rem;
+    }
+    
+    .hero {
+        height: 90vh; 
+    }
+    
+    .hero-content h1 {
+        /* AJUSTE CLAVE 1: Reducción de fuente para que quepa en 768px */
+        font-size: 3rem;
+        letter-spacing: 3px;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .btn {
+        width: 80%;
+        max-width: 300px;
+        padding: 0.8rem 2rem;
+    }
+    .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .stat h3 {
+        font-size: 2.8rem;
+    }
+    .social-links {
+        display: none; 
+    }
+    .cars-grid {
+        grid-template-columns: 1fr;
+    }
+    .content-section h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* AJUSTE EXTREMO PARA MÓVILES MUY PEQUEÑOS (< 480px) */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        /* AJUSTE CLAVE 2: Reducción aún mayor para móviles muy pequeños */
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .stat h3 {
+        font-size: 2.5rem;
+    }
+    .stat p {
+        font-size: 0.8rem;
+    }
+    .hero-badge {
+        font-size: 0.9rem;
+    }
+}
